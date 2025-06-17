@@ -1,0 +1,11 @@
+{
+  "name": "ifts11_backend_tpfinal",
+  "version": "1.0.0",
+  "description": "TP final para la materia Desarrollo de Sistemas Web Back End",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gonzalez E., Palma K., Romero R. G., Vivas Z.",
+  "license": "ISC"
+}
