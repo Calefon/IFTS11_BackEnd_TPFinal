@@ -36,7 +36,7 @@ Para iniciar el servidor, utilice el siguiente script npm:
 npm run initServer
 ```
 ## Integrantes
-* ### Gonzalez Luriaud Ezequiel @Calefon
-* ### Palma Romero Kevin Maximiliano @kevmpr
-* ### Romero Rocha Gabriel Francisco @GabRom98
-* ### Vivas Zoe Mariel @Chowi07
+* #### Gonzalez Luriaud Ezequiel [@Calefon](https://github.com/Calefon)
+* #### Palma Romero Kevin Maximiliano [@kevmpr](https://github.com/kevmpr)
+* #### Romero Rocha Gabriel Francisco [@GabRom98](https://github.com/GabRom98)
+* #### Vivas Zoe Mariel [@Chowi07](https://github.com/Chowi07)
