@@ -18,6 +18,6 @@ const testCrear = async (obj) => {
     }
 }
 
-testCrear({
+/* testCrear({
     titulo: "Lista 2"
-})
+}) */
