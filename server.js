@@ -1,6 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import mainRouter from "./src/routes/mainRouter.js";
+import './src/repositories/testRepository.js'
 
 const server = express();
 
