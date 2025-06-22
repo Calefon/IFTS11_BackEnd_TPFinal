@@ -1,7 +1,5 @@
-import {connectToMongoDBMongoose} from '../db/mongoDBConection.js'
-import { Listas } from './models/listas.model.js';
 
-connectToMongoDBMongoose();
+import { Listas } from './mongooseModels/listas.model.js';
 
 const testCrear = async (obj) => {
     try {
