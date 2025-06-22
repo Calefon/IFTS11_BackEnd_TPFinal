@@ -14,3 +14,13 @@ export const createStickyRepository = async (newSticky) => {
     }
 }
 
+export const readAllStickiesRepository = async () => {
+    try{
+        const stickies = await Sticky.find();
+        return stickies
+    } catch (error) {
+        console.log("Error al intentar buscar todas las stickies - " + error)
+        throw Error("Error en readAllStickiesRepository - " + error) 
+    }
+}
+
