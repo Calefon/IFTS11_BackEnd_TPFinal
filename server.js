@@ -3,6 +3,7 @@ import morgan from "morgan";
 import mainRouter from "./src/routes/mainRouter.js";
 import repositoriesInit from "./src/repositories/repositoriesInit.js";
 import stickiesRouter from "./src/routes/stickiesRouter.js";
+import cors from 'cors'
 
 //TODO: BORRAR testRepository.js
 
