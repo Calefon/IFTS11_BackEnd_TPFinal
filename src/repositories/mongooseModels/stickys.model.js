@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-//Test de schema usado para 
+//Schema para stickys
 const stickysSchema = mongoose.Schema(
     {
         titulo:{
@@ -11,4 +11,5 @@ const stickysSchema = mongoose.Schema(
     }
 )
 
+//Por default guarda el dato en la collection con nombre segun el plural del nombre del modelo en minuscula (Sticky -> stickies)
 export const Sticky = mongoose.model('Sticky', stickysSchema);
