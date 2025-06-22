@@ -1,6 +1,6 @@
 import * as stickiesService from '../services/stickiesService.js'
 
-const getAllStickies = async (req, res) => {
+export const getAllStickies = async (req, res) => {
     try{
         res.setHeader('Content-Type', 'application/json');
         res.status(200);

@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import mainRouter from "./src/routes/mainRouter.js";
 import repositoriesInit from "./src/repositories/repositoriesInit.js";
+import stickiesRouter from "./src/routes/stickiesRouter.js";
 
 //Inicializacion de repository
 repositoriesInit();
@@ -19,6 +20,9 @@ server.use(express.text())
 
 //Middleware morgan para logging de requests
 server.use(morgan('combined'));
+
+//Router stickies
+server.use('/stickies',stickiesRouter);
 
 //Router principal
 server.use(mainRouter);
