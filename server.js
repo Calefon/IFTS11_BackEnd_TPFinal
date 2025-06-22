@@ -14,6 +14,16 @@ const server = express();
 const HOSTNAME = '127.0.0.1';
 const PORT = process.env.PORT || 8080;
 
+//Cors setup para correrlo en localhost
+const corsOptions = {
+  origin: '*',  
+  methods: 'GET,POST,PUT,DELETE',  
+  allowedHeaders: 'Content-Type,Authorization',  
+  credentials: true,
+};
+
+server.use(cors(corsOptions));
+
 //Middleware para parsear json requests
 server.use(express.json())
 
