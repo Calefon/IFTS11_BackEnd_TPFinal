@@ -1,6 +1,8 @@
 
 import { Listas } from './mongooseModels/listas.model.js';
 
+//TODO: borrar este modulo
+
 const testCrear = async (obj) => {
     try {
         console.log(`REPOSITORY  - testCrear - obj:${obj}`)

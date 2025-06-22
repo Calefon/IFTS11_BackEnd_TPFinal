@@ -7,5 +7,7 @@ stickiesRouter.get('/all', stickiesController.getAllStickies);
 
 stickiesRouter.post('/new', stickiesController.postCreateSticky);
 
+stickiesRouter.delete('/delete/:id', stickiesController.deleteSticky);
+
 
 export default stickiesRouter;

@@ -4,6 +4,8 @@ import mainRouter from "./src/routes/mainRouter.js";
 import repositoriesInit from "./src/repositories/repositoriesInit.js";
 import stickiesRouter from "./src/routes/stickiesRouter.js";
 
+//TODO: BORRAR testRepository.js
+
 //Inicializacion de repository
 repositoriesInit();
 

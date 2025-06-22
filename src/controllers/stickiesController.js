@@ -16,10 +16,23 @@ export const postCreateSticky = async (req, res) => {
         const newSticky = req.body;
 
         res.setHeader('Content-Type', 'application/json');
-        res.status(201);
+        res.status(200);
         res.send(await stickiesService.createSticky(newSticky));
     }catch(error){
         console.error(`CONTROLLER ERROR - Error al intentar crear sticky: \n***\n\t${error}`);
         res.status(500).send({ code: 500, message: "Error al intentar crear sticky"});
+    }
+}
+
+export const deleteSticky = async (req, res) => {
+    try{
+        const stickyId = req.params.id;
+
+        res.setHeader('Content-Type', 'application/json');
+        res.status(200);
+        res.send(await stickiesService.deleteStickyById(stickyId));
+    }catch(error){
+        console.error(`CONTROLLER ERROR - Error al intentar borrar sticky: \n***\n\t${error}`);
+        res.status(500).send({ code: 500, message: "Error al intentar borrar sticky"});
     }
 }
