@@ -1,6 +1,6 @@
 import { Sticky } from "./mongooseModels/stickys.model.js";
 
-export const createStickyRepository = async (titulo, contenido = "") => {
+export const createSticky = async (titulo, contenido = "") => {
     try {
         const nuevoSticky = new Sticky({titulo, contenido});
 
@@ -9,22 +9,22 @@ export const createStickyRepository = async (titulo, contenido = "") => {
         return nuevoSticky
 
     } catch (error) {
-        console.error(`REPOSITORY ERROR - createStickyRepository: \n***\n\t:${error}`)
+        console.error(`REPOSITORY ERROR - createSticky: \n***\n\t:${error}`)
         throw Error(`REPOSITORY ERROR - Error al intentar crear sticky: \n***\n\t:${error}`)
     }
 }
 
-export const readAllStickiesRepository = async () => {
+export const readAllStickies = async () => {
     try{
         const stickies = await Sticky.find();
         return stickies
     } catch (error) {
         console.error(`REPOSITORY ERROR - Error al intentar buscar todas las stickies: \n***\n\t${error}`)
-        throw Error(`REPOSITORY ERROR - Error en readAllStickiesRepository: \n***\n\t${error}`) 
+        throw Error(`REPOSITORY ERROR - Error en readAllStickies: \n***\n\t${error}`) 
     }
 }
 
-export const deleteStickyByIdRepository = async (id) => {
+export const deleteStickyById = async (id) => {
 
     try {
         const stickyEliminado = await Sticky.findByIdAndDelete(id)
@@ -37,7 +37,7 @@ export const deleteStickyByIdRepository = async (id) => {
         }
 
     } catch (error) {
-        console.error(`REPOSITORY ERROR - deleteStickyRepository: \n***\n\t${error}`)
+        console.error(`REPOSITORY ERROR - deleteSticky: \n***\n\t${error}`)
         throw Error(`REPOSITORY ERROR - Error al intentar eliminar sticky: \n***\n\t${error}`)
     }
 }

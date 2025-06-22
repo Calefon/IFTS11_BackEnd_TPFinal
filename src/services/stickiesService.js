@@ -1,23 +1,23 @@
-import { createStickyRepository, readAllStickiesRepository } from "../repositories/stickiesRepository.js";
+import * as stickiesRepository from "../repositories/stickiesRepository.js";
 
 
 
-export const getAllStickiesService = async () => {
+export const getAllStickies = async () => {
     try{
-        const stickies = await readAllStickiesRepository();
+        const stickies = await stickiesRepository.readAllStickies();
         return stickies;
     }catch(error){
         console.error(`SERVICE ERROR - Error al intentar buscar todas las stickies: \n***\n\t${error}`);
-        throw Error(`SERVICE ERROR - Error en getAllStickiesService: \n***\n\t${error}`);
+        throw Error(`SERVICE ERROR - Error en getAllStickies: \n***\n\t${error}`);
     }
 }
 
-export const createStickyService = async (titulo, contenido) => {
+export const createSticky = async (titulo, contenido) => {
     try{
-        const createdSticky = await createStickyRepository(titulo, contenido);
+        const createdSticky = await stickiesRepository.createSticky(titulo, contenido);
         return createdSticky;
     }catch(error){
         console.error(`SERVICE ERROR - Error al intentar buscar todas las stickies: \n***\n\t${error}`);
-        throw Error(`SERVICE ERROR - Error en getAllStickiesService: \n***\n\t${error}`);
+        throw Error(`SERVICE ERROR - Error en getAllStickies: \n***\n\t${error}`);
     }
 }
