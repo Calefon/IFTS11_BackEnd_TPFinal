@@ -1,25 +1,29 @@
 import express from "express";
 import morgan from "morgan";
 import mainRouter from "./src/routes/mainRouter.js";
-import { connectToMongoDBMongoose } from "./src/db/mongoDBConection.js";
-import { createStickyService, getAllStickiesService } from "./src/services/stickiesService.js";
+import repositoriesInit from "./src/repositories/repositoriesInit.js";
 
-
-//Iniciar conexión a MongoDB
-connectToMongoDBMongoose();
+//Inicializacion de repository
+repositoriesInit();
 
 const server = express();
 
 const HOSTNAME = '127.0.0.1';
 const PORT = process.env.PORT || 8080;
 
+//Middleware para parsear json requests
 server.use(express.json())
+
+//Middleware para parsear txt requests
 server.use(express.text())
+
+//Middleware morgan para logging de requests
 server.use(morgan('combined'));
+
+//Router principal
 server.use(mainRouter);
 
 server.listen(PORT,HOSTNAME,() => {
     console.log(`Servidor corriendo en http://${HOSTNAME}:${PORT}`);
 })
 
-console.info(await createStickyService("gg"))

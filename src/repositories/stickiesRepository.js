@@ -1,5 +1,7 @@
 import { Sticky } from "./mongooseModels/stickys.model.js";
 
+//Este modulo asume que ya existe una conexión a mongoDB inicializada con mongoose
+
 export const createSticky = async (titulo, contenido = "") => {
     try {
         const nuevoSticky = new Sticky({titulo, contenido});
