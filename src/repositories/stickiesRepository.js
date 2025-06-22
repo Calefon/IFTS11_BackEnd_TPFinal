@@ -1,8 +1,8 @@
 import { Sticky } from "./mongooseModels/stickys.model.js";
 
-export const createStickyRepository = async (newSticky) => {
+export const createStickyRepository = async (titulo, contenido = "") => {
     try {
-        const nuevoSticky = new Sticky(newSticky);
+        const nuevoSticky = new Sticky({titulo, contenido});
 
         await nuevoSticky.save();
         console.info(`Sticky creado: ${nuevoSticky}\nID: ${nuevoSticky._id}`);
