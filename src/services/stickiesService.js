@@ -10,7 +10,7 @@ export const getAllStickies = async () => {
     }
 }
 
-export const createSticky = async (titulo, contenido) => {
+export const createSticky = async ({titulo, contenido}) => {
     try{
         const createdSticky = await stickiesRepository.createSticky(titulo, contenido);
         return createdSticky;
