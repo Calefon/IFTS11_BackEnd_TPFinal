@@ -2,8 +2,9 @@ import express from "express";
 import morgan from "morgan";
 import mainRouter from "./src/routes/mainRouter.js";
 import { connectToMongoDBMongoose } from "./src/db/mongoDBConection.js";
-import { createStickyRepository, deleteStickyRepository, readAllStickiesRepository } from "./src/repositories/stickyRepository.js";
+import { createStickyRepository, deleteStickyByIdRepository, readAllStickiesRepository } from "./src/repositories/stickiesRepository.js";
 import { StickyObj } from "./src/models/sticky.model.js";
+import { getAllStickiesService } from "./src/services/stickiesService.js";
 
 
 //Iniciar conexión a MongoDB
