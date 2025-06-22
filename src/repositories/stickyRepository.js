@@ -24,3 +24,21 @@ export const readAllStickiesRepository = async () => {
     }
 }
 
+export const deleteStickyRepository = async (id) => {
+
+    try {
+        const stickyEliminado = await Sticky.findByIdAndDelete(id)
+
+        if(!stickyEliminado){
+            console.log('Elemento no encontrado - deleteSticky')
+        }else{
+            console.log(`Se elimino el elemento: \n${JSON.stringify(stickyEliminado)}`)
+            return stickyEliminado
+        }
+
+    } catch (error) {
+        console.log("deleteStickyRepository - " + error)
+        throw Error("Error al intentar eliminar sticky: - " + error)
+    }
+}
+
