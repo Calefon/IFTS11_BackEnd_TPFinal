@@ -2,13 +2,13 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 //Schema de tarjetas
-const tarjetasSchema = new Schema(
+const cardSchema = new Schema(
     {
-        nombre:{
+        title:{
             type: String,
             required: true
         },
-        descripcion: String,
+        description: String,
         tags: [String]
     }
 );

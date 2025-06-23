@@ -1,4 +1,5 @@
 import { Router } from "express";
+import cardRouter from "./cardsRouter.js"
 
 const mainRouter = Router();
 
@@ -7,5 +8,6 @@ mainRouter.get("/", (req,res) => {
 })
 
 //Atarlo con las rutas necesarias
+mainRouter.use(cardRouter);
 
 export default mainRouter;
