@@ -3,6 +3,7 @@ import {
   getAllListsService,
   getListByIdService,
   updateListService,
+  deleteListService,
 } from "../../services/listas.service.js";
 
 // List Controllers
@@ -53,11 +54,30 @@ export const updateList = async (req, res) => {
   try {
     const updatedList = await updateListService(listId, title);
     res.status(200).json(updatedList);
-  } catch (error){
+  } catch (error) {
     if (error.message === "List not found") {
       res.status(404).json({ message: error.message });
     } else {
       res.status(400).json({ message: error.message });
+    }
+  }
+};
+
+export const deleteList = async (req, res) => {
+  const { listId } = req.params;
+
+  try {
+    const deletedList = await deleteListService(listId);
+    res.status(200).json({ message: "List deleted successfully", deletedList });
+  } catch (error) {
+    if (error.message === "List not found") {
+      res
+        .status(404)
+        .json({ message: error.message });
+    } else {
+      res
+        .status(500)
+        .json({ message: "Error deleting list", error: error.message });
     }
   }
 };

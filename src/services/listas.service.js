@@ -41,3 +41,8 @@ export const updateListService = async (listId, title) => {
   return updatedList;
 };
 
+export const deleteListService = async (listId) => {
+    const deletedList = await CardListModel.findByIdAndDelete(listId);
+    if (!deletedList) throw new Error("List not found");
+    return deletedList;
+};
