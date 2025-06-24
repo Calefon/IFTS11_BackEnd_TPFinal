@@ -1,5 +1,8 @@
 import {createCardService,deleteCardService, getAllCardsByListIdService} from "../services/cardsService.js"
 import generarNuevaCard from "../utils/generarNuevaCard.js";
+import { CardListModel } from '../repositories/mongooseModels/listas.model.js';
+import Card from '../repositories/mongooseModels/card.model.js';
+
 
 const createCardController = async (req, res) => {
     const { listId } = req.params;
@@ -9,8 +12,17 @@ const createCardController = async (req, res) => {
         return res.status(400).json({ message: 'Card title is required' });
     }
 
+    try{
+        const list = await CardListModel.findById(listId);
+        if (!list) {
+            return res.status(404).json({ message: 'List not found' });
+        }
+    }catch(error){
+        return res.status(500).json({ message: error.message });
+    }
+
     const card = generarNuevaCard(title, description, listId);
-    console.log(card)
+
     try {
         const newCard = await createCardService(card);
         res.status(201).json(newCard);
@@ -21,6 +33,23 @@ const createCardController = async (req, res) => {
 
 const deleteCardController = async (req, res) => {
     const { listId, cardId } = req.params;
+
+    try{
+        const list = await CardListModel.findById(listId);
+
+        if (!list) {
+            return res.status(404).json({ message: 'List not found' });
+        }
+
+        
+        const card = await Card.findOne({ _id: cardId, cardList: listId });
+
+        if (!card) {
+            return res.status(404).json({ message: 'Card not found' });
+        }
+    } catch(error){
+        res.status(500).json({ message: error.message });
+    }
 
     try{
         const cardDeleted = await deleteCardService(cardId);
@@ -35,6 +64,15 @@ const getAllCardsByListIdController = async (req, res) => {
  
     if (!listId) {
         return res.status(400).json({ message: 'List id is required' });
+    }
+    
+    try{
+        const list = await CardListModel.findById(listId);
+        if (!list) {
+            return res.status(404).json({ message: 'List not found' });
+        }
+    }catch(error){
+        return res.status(500).json({ message: error.message });
     }
 
     try {

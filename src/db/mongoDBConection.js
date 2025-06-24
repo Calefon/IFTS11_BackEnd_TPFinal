@@ -1,8 +1,7 @@
 import { configMongoDB } from "../config/config.js";
 import mongoose from "mongoose";
 
-const defaultURI1 = `mongodb+srv://zoevivas64:Kc4wZv9gpTSjYtTa@cluster0.9kqfxnf.mongodb.net/`;
-// const defaultURI = `mongodb+srv://kevmpr:AlNWvBRWkyy3UrHd@mi-cluster-kevin.zxo5ujl.mongodb.net/kanban?retryWrites=true&w=majority&appName=mi-cluster-kevin`;
+const defaultURI = `mongodb+srv://${configMongoDB.user}:${configMongoDB.password}@${configMongoDB.cluster.toLocaleLowerCase()}.leomcxc.mongodb.net/${configMongoDB.database}?retryWrites=true&w=majority&appName=${configMongoDB.cluster}`;
 
 const URI = configMongoDB.useCustomURI
   ? configMongoDB.customMongoDBURI
