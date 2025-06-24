@@ -4,6 +4,7 @@ import {
   getLists,
   getListById,
   updateList,
+  deleteList,
 } from "../controllers/lists/listas.controller.js";
 
 const listasRouter = Router();
@@ -13,5 +14,6 @@ listasRouter.get("/", getLists);
 listasRouter.post("/", createList);
 listasRouter.get("/:listId", getListById);
 listasRouter.put("/:listId", updateList);
+listasRouter.delete("/:listId", deleteList);
 
 export default listasRouter;
