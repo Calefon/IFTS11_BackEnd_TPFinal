@@ -1,6 +1,5 @@
 import { CardListModel } from "../repositories/mongooseModels/listas.model.js";
-
-//
+import Card from "../repositories/mongooseModels/card.model.js";
 
 export const createListService = async (title) => {
   if (!title) {
@@ -66,6 +65,19 @@ export const deleteListService = async (listId) => {
 
   // Si no se encontró la lista, lanza un error indicando que no existe.
   if (!deletedList) throw new Error("List not found");
+
+  // Elimina todas las cards asociadas a la lista eliminada.
+    try {
+    const result = await Card.deleteMany({ cardList: listId });
+    if (result.deletedCount === 0) {
+      console.warn('No se encontraron cards para eliminar en la lista:', listId);
+    } else {
+      console.log(`Cards eliminadas: ${result.deletedCount}`);
+    }
+  } catch (error) {
+    console.error('Error eliminando cards por lista:', error);
+    throw new Error('No se pudieron eliminar las cards');
+  }
 
   // Retorna la lista eliminada.
   return deletedList;

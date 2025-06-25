@@ -4,7 +4,7 @@ import {
   getListByIdService,
   updateListService,
   deleteListService,
-} from "../../services/listas.service.js";
+} from "../services/listasService.js";
 
 // List Controllers
 
