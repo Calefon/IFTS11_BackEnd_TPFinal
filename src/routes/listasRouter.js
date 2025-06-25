@@ -5,7 +5,7 @@ import {
   getListById,
   updateList,
   deleteList,
-} from "../controllers/lists/listas.controller.js";
+} from "../controllers/listasController.js";
 
 const listasRouter = Router();
 
